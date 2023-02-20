@@ -20,6 +20,8 @@ Author.create(name: "David Baldacci")
 Movie.create(name:"Enola Holmes", genre_id: 1, platform_id: 1, link: "https://www.netflix.com/title/81277950?source=35", watched: false, notes: "We need to watch it together")
 Movie.create(name:"Enola Holmes 2", genre_id: 1, platform_id: 1, link: "https://www.netflix.com/title/81406219?source=35", watched: false, notes: "We need to watch it together")
 Genre.create(name:"Mystery/Crime")
+Genre.create(name: "Romance")
+TvShow.create(name:"Bridgerton", genre_id: 2, platform_id: 1, link: "https://www.netflix.com/title/80232398?source=35", watched: false, notes: "We need to watch it together")
 Platform.create(name: "Netflix", link: "https://www.netflix.com")
 Platform.create(name: "Hulu", link: "https://www.hulu.com")
 

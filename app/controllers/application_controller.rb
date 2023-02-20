@@ -27,4 +27,9 @@ class ApplicationController < Sinatra::Base
     platforms.to_json
   end
 
+  get "/tv_shows" do
+    tv = TvShow.all
+    tv.to_json
+  end
+
 end
