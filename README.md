@@ -1,5 +1,7 @@
 # Phase 3 Project Guidelines
 
+Frontend - https://github.com/mendelr20/phase-3-project-frontend
+Backend - https://github.com/mendelr20/phase-3-sinatra-react-project
 ## Learning Goals
 
 - Build a web basic API with Sinatra and Active Record to support a React
