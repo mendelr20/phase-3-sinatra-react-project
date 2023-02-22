@@ -1,5 +1,6 @@
 # Phase 3 Project Guidelines
 
+Hey there
 Frontend - https://github.com/mendelr20/phase-3-project-frontend
 Backend - https://github.com/mendelr20/phase-3-sinatra-react-project
 ## Learning Goals
