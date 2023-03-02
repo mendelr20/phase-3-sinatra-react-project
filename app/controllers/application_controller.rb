@@ -1,38 +1,46 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add your routes here
- 
   get "/books" do
     books = Book.all
     books.to_json(include: :author)
+  end
 
-  # how to include 2 include statments
+  get "/books/:id" do
+    book = Book.find(params[:id])
+    book.to_json(include: :author)
+  end  
+
+  patch "/books/:id" do 
+    book = Book.find(params[:id])
+    book.update(read_by_mendel: params[:read_by_mendel], read_by_shaina: params[:read_by_shaina])
+    book.to_json
+  end
+
+  delete "/books/:id" do
+    book = Book.find(params[:id])
+    book.destroy
+    book.to_json
+  end
+
+  post "/books" do
+    book = Book.create(name: params[:name], series: params[:series], author_id: params[:author_id], notes: params[:notes], read_by_mendel: params[:read_by_mendel], read_by_shaina: params[:read_by_shaina] )
+    book.to_json
   end
 
   get "/authors" do
     authors = Author.all
     authors.to_json
+  end   
+
+  get "/authors/:id" do
+    author = Author.find(params[:id])
+    author.to_json(include: :books)
+  end  
+
+  post "/authors" do
+    author = Author.create(name: params[:name])
+    author.to_json
   end
-
-  # get "/movies" do
-  #   movies = Movie.all
-  #   movies.to_json
-  # end
-
-  # get "/genres" do
-  #   genres = Genre.all
-  #   genres.to_json
-  # end
-
-  # get "/platforms" do
-  #   platforms = Platform.all
-  #   platforms.to_json
-  # end
-
-  # get "/tv_shows" do
-  #   tv = TvShow.all
-  #   tv.to_json
-  # end
 
 end
