@@ -13,18 +13,13 @@ class ApplicationController < Sinatra::Base
 
   patch "/books/:id" do 
     book = Book.find(params[:id])
-    book.update(name: params[:name], series: params[:series], notes: params[:notes], read_by_mendel: params[:read_by_mendel], read_by_shaina: params[:read_by_shaina])
-    book.to_json
+    book.update(params[:book])
+    book.to_json(include: :author)
   end
 
   delete "/books/:id" do
     book = Book.find(params[:id])
     book.destroy
-    book.to_json
-  end
-
-  post "/books" do
-    book = Book.create(name: params[:name], series: params[:series], author_id: params[:author_id], notes: params[:notes], read_by_mendel: params[:read_by_mendel], read_by_shaina: params[:read_by_shaina] )
     book.to_json
   end
 
