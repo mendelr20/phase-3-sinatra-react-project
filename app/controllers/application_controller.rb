@@ -17,6 +17,11 @@ class ApplicationController < Sinatra::Base
     book.to_json(include: :author)
   end
 
+  post "/books" do
+    book = Book.create(name: params[:name], series: params[:series], author_id: params[:author_id], notes: params[:notes], read_by_mendel: params[:read_by_mendel], read_by_shaina: params[:read_by_shaina] )
+    book.to_json(include: :author)
+  end
+
   delete "/books/:id" do
     book = Book.find(params[:id])
     book.destroy
