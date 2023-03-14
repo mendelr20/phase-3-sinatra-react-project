@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/books" do
-    book = Book.create(name: params[:name], series: params[:series], author_id: params[:author_id], notes: params[:notes], read_by_mendel: params[:read_by_mendel], read_by_shaina: params[:read_by_shaina] )
+    book = Book.create(name: params[:name], series: params[:series], author_id: params[:author_id], notes: params[:notes], read: params[:read])
     book.to_json(include: :author)
   end
 
@@ -25,13 +25,8 @@ class ApplicationController < Sinatra::Base
 
   get "/authors" do
     authors = Author.all
-    authors.to_json
+    authors.to_json(include: :books)
   end   
-
-  get "/authors/:id" do
-    author = Author.find(params[:id])
-    author.to_json(include: :books)
-  end  
 
   post "/authors" do
     author = Author.create(name: params[:name])

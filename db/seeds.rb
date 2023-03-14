@@ -1,18 +1,6 @@
-
-# reset_ids(Book)
-# reset_ids(Author)
-# reset_ids(Movie)
-# reset_ids(Genre)
-# reset_ids(TvShow)
-# reset_ids(Platform)
-
 puts "🌱 Seeding books..."
 Book.destroy_all
 Author.destroy_all
-# Movie.destroy_all
-# Genre.destroy_all
-# TvShow.destroy_all
-# Platform.destroy_all
 
 a1 = Author.create(name: "Lee Child")
 a2 = Author.create(name: "David Baldacci")
