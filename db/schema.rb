@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_23_225235) do
+ActiveRecord::Schema.define(version: 2023_03_14_002155) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -21,8 +21,7 @@ ActiveRecord::Schema.define(version: 2023_02_23_225235) do
     t.string "series"
     t.integer "author_id"
     t.string "notes"
-    t.boolean "read_by_mendel"
-    t.boolean "read_by_shaina"
+    t.boolean "read"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -54,4 +53,4 @@ ActiveRecord::Schema.define(version: 2023_02_23_225235) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-end     
+end

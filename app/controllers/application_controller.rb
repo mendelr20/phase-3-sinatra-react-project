@@ -6,11 +6,6 @@ class ApplicationController < Sinatra::Base
     books.to_json(include: :author)
   end
 
-  get "/books/:id" do
-    book = Book.find(params[:id])
-    book.to_json(include: :author)
-  end  
-
   patch "/books/:id" do 
     book = Book.find(params[:id])
     book.update(params[:book])
